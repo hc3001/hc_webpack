@@ -1,0 +1,16 @@
+{
+  "name": "hc_webpack",
+  "version": "1.0.0",
+  "description": "webpack training",
+  "private": true,
+  "author": "hc",
+  "license": "ISC",
+  "scripts": {
+    "bundle": "webpack"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "webpack": "^5.20.1",
+    "webpack-cli": "^4.5.0"
+  }
+}
