@@ -1,7 +1,3 @@
-import avatar from './avatar.png'
+import { add } from './math.js'
 
-var img = new Image()
-img.src = avatar
-
-var root = document.getElementById('root')
-root.append(img)
+add(1, 3)
