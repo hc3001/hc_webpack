@@ -1,27 +1,17 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-console.log('ss', path.resolve(__dirname, '../dist'))
+
 module.exports = {
-	entry: './src/index.js',
+	entry: {
+		main: './src/index.js'
+	},
 	module: {
 		rules: [
 			{
 				test: /\.m?js$/,
 				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: [
-							[
-								'@babel/preset-env',
-								{
-									useBuiltIns: 'usage'
-								}
-							]
-						]
-					}
-				}
+				loader: 'babel-loader'
 			},
 			{
 				test: /\.(png|jpg|gif)$/,
@@ -60,15 +50,20 @@ module.exports = {
 				use: [ 'style-loader', 'css-loader', 'postcss-loader' ]
 			}
 		]
-    },
-    plugins: [
+	},
+	plugins: [
 		new HtmlWebpackPlugin({
 			template: 'src/index.html'
 		}),
 		new CleanWebpackPlugin()
-    ],
-    output: {
+	],
+	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, '../dist')
 	},
+	optimization: {
+		splitChunks: {
+			chunks: 'all'
+		}
+	}
 }

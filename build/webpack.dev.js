@@ -10,7 +10,7 @@ const devConfig = {
 		hot: true,
 		hotOnly: true,
 	},
-	devtool: 'cheap-module-source-map',
+	devtool: 'eval-cheap-module-source-map',
 	plugins: [
 		new webpack.HotModuleReplacementPlugin()
     ],
